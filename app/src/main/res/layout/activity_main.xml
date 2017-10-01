@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_vertical"
+    tools:context="com.example.bmicalculator.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/bmi"
+        android:layout_marginBottom="60dp"/>
+
+    <TextView
+        android:id="@+id/textView_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/height_label"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/editText_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weight_label"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editText_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate_label"
+        android:layout_marginTop="32dp"
+        android:textAllCaps="true" />
+
+</LinearLayout>
