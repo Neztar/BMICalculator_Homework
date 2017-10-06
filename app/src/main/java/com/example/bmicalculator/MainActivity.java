@@ -1,6 +1,7 @@
 package com.example.bmicalculator;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,21 +36,14 @@ public class MainActivity extends AppCompatActivity{
                 height /= 100;
                 double bmi = weight/(height*height);
                 String bmiText = getBmi(bmi);
-                //String result = "ค่า BMI ที่ได้คือ "+String.valueOf(bmi)+"\n\nอยู่ในเกณฑ์ "+bmiText;
-                String result = String.format("ค่า BMI ที่ได้คือ %.2f\n\nอยู่ในเกณฑ์ %s",bmi,bmiText);
+                //String result = String.format("ค่า BMI ที่ได้คือ %.2f\n\nอยู่ในเกณฑ์ %s",bmi,bmiText);
+                Intent intent = new Intent(MainActivity.this,BMIResultActivity.class);
 
-                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                dialog.setTitle("BMI result");
-                dialog.setMessage(result);
-                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        heightedit.setText("");
-                        weightedit.setText("");
-                    }
-                });
-                dialog.show();
-            }private String getBmi(double bmi) {
+                intent.putExtra("bmi_value",bmi);
+                intent.putExtra("bmi_text",bmiText);
+                startActivity(intent);
+            }
+            private String getBmi(double bmi) {
                 //BMI = weight(kg)/height^2(m)
                 // bmi < 18.5 : น้ำหนักน้อยกว่าปกติ
                 // bmi < 25 : น้ำหนักปกติ
